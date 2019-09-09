@@ -14,7 +14,7 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        tvTItle = findViewById(R.id.headerTvTItle);
+        tvTItle = findViewById(R.id.headertvButton);
         tvTItle.setText("OK");
     }
     public void clickFullButton(View view){
