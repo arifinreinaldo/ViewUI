@@ -7,12 +7,13 @@ import android.view.View;
 
 import com.ui.mobiledataplanui.R;
 
-public class ConfirmationActivity extends AppCompatActivity {
+public class ConfirmationActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
+        setTitlePage("Confirmation");
     }
     public void clickFullButton(View view){
         startActivity(new Intent(ConfirmationActivity.this, ResultActivity.class));

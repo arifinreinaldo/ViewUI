@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.ui.mobiledataplanui.R;
 
-public class ResultActivity extends AppCompatActivity {
+public class ResultActivity extends BaseActivity {
     private TextView tvTItle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +16,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         tvTItle = findViewById(R.id.headertvButton);
         tvTItle.setText("OK");
+        setTitlePage("Payment Details");
     }
     public void clickFullButton(View view){
         startActivity(new Intent(ResultActivity.this, MainActivity.class));
