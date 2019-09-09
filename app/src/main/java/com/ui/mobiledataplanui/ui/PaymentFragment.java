@@ -2,6 +2,7 @@ package com.ui.mobiledataplanui.ui;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PaymentFragment extends Fragment {
+public class PaymentFragment extends Fragment implements PaymentListener{
     private RecyclerView rvPrice;
     private AdapterPrice adapterPrice;
     public PaymentFragment() {
@@ -43,7 +44,7 @@ public class PaymentFragment extends Fragment {
         LinearLayoutManager layoutManagerDayVerti
                 = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false);
         rvPrice.setLayoutManager(layoutManagerDayVerti);
-        adapterPrice = new AdapterPrice(this.getContext(), getPricelist());
+        adapterPrice = new AdapterPrice(this.getContext(), getPricelist(),this);
         rvPrice.setAdapter(adapterPrice);
     }
 
@@ -54,5 +55,10 @@ public class PaymentFragment extends Fragment {
         rtn.add(new PojoPrice(100000,100000));
         rtn.add(new PojoPrice(195000,200000));
         return rtn;
+    }
+
+    @Override
+    public void getNominal(PojoPrice price) {
+        startActivity(new Intent(getActivity(), ConfirmationActivity.class));
     }
 }

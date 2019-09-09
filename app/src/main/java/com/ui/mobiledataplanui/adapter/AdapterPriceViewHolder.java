@@ -27,4 +27,8 @@ class AdapterPriceViewHolder extends RecyclerView.ViewHolder {
     public void setBtPrice(int price) {
         this.btPrice.setText(util.convertNumbers(price));
     }
+
+    public Button getButtonPrice(){
+        return btPrice;
+    }
 }

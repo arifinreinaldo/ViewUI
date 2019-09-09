@@ -9,16 +9,19 @@ import android.view.ViewGroup;
 
 import com.ui.mobiledataplanui.R;
 import com.ui.mobiledataplanui.module.PojoPrice;
+import com.ui.mobiledataplanui.ui.PaymentListener;
 
 import java.util.List;
 
 public class AdapterPrice extends RecyclerView.Adapter<AdapterPriceViewHolder> {
     private Context ctx;
     private List<PojoPrice> priceList;
+    private PaymentListener listener;
 
-    public AdapterPrice(Context ctx, List<PojoPrice> priceList) {
+    public AdapterPrice(Context ctx, List<PojoPrice> priceList, PaymentListener listener) {
         this.ctx = ctx;
         this.priceList = priceList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -30,9 +33,15 @@ public class AdapterPrice extends RecyclerView.Adapter<AdapterPriceViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull AdapterPriceViewHolder adapterPriceViewHolder, int i) {
-        PojoPrice price = priceList.get(i);
+        final PojoPrice price = priceList.get(i);
         adapterPriceViewHolder.setBtPrice(price.getPrice());
         adapterPriceViewHolder.setTvNominal(price.getNominal());
+        adapterPriceViewHolder.getButtonPrice().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.getNominal(price);
+            }
+        });
 
     }
 
