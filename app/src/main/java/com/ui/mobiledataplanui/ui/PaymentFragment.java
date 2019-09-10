@@ -9,10 +9,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import com.ui.mobiledataplanui.R;
 import com.ui.mobiledataplanui.adapter.AdapterPrice;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 public class PaymentFragment extends Fragment implements PaymentListener{
     private RecyclerView rvPrice;
     private AdapterPrice adapterPrice;
+    private EditText etEdit;
     public PaymentFragment() {
         // Required empty public constructor
     }
@@ -40,7 +43,21 @@ public class PaymentFragment extends Fragment implements PaymentListener{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         rvPrice = view.findViewById(R.id.rvPricing);
+        etEdit = view.findViewById(R.id.frPaymenttvCallNumber);
 
+        etEdit.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                String value = etEdit.getText().toString();
+                if(value.length()>4){
+                    showPrice();
+                }
+                return false;
+            }
+        });
+    }
+
+    private void showPrice(){
         LinearLayoutManager layoutManagerDayVerti
                 = new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false);
         rvPrice.setLayoutManager(layoutManagerDayVerti);

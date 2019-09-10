@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:background="@color/colorInfo"/>
+        android:id="@+id/ivPromo"
+        android:layout_width="300dp"
+        android:layout_height="90dp"
+        android:background="@drawable/ic_promo"/>
 </LinearLayout>

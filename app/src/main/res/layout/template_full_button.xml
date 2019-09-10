@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@color/colorAccent"
     android:paddingTop="10dp"
+    android:onClick="clickFullButton"
     android:paddingBottom="10dp">
 
     <TextView
@@ -15,6 +16,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="19sp"
-        android:onClick="clickFullButton"
         android:text="Pay"/>
 </RelativeLayout>
