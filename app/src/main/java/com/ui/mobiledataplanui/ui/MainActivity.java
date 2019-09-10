@@ -44,11 +44,18 @@ public class MainActivity extends BaseActivity implements MainListener{
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         LinearLayoutManager layoutManagerDay
                 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         layoutManagerDay.setReverseLayout(true);
         rvPromo.setLayoutManager(layoutManagerDay);
         SnapHelper helper = new LinearSnapHelper();
+        rvPromo.setOnFlingListener(null);
         helper.attachToRecyclerView(rvPromo);
         AdapterPromo mAdapter = new AdapterPromo(MainActivity.this, getDailyData(),this);
         rvPromo.setAdapter(mAdapter);
